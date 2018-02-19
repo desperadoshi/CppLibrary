@@ -1,1 +1,1 @@
-For details, refer to the [doc](./doc/Cubic Spline C++ Implementation.md).
+Here is the collection of my C++ snippets, including various scientific routines. The libraries and the applications are separated. Multiple CMakeLists.txt are employed to manage the codes and the compilation.
