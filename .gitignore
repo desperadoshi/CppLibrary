@@ -1,3 +1,9 @@
 build/
 debug/
 release/
+bin/
+include/
+lib/
+*.a
+*.o
+*.png
