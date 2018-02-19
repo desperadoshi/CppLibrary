@@ -1,13 +1,14 @@
-project(CubicSplineTest)
+project(IOTest)
 
-include_directories("${CMAKE_SOURCE_DIR}/src/core/cubic_spline")
 include_directories("${CMAKE_SOURCE_DIR}/src/core/misc")
 include_directories("${CMAKE_SOURCE_DIR}/src/core/io")
+include_directories("${CMAKE_SOURCE_DIR}/src/core/linalg")
+# link_directories("${CMAKE_SOURCE_DIR}/lib")
 
 add_executable(${PROJECT_NAME} test.cpp)
 
-set(EXTRA_LIBS ${EXTRA_LIBS} cubic_spline)
 set(EXTRA_LIBS ${EXTRA_LIBS} io)
+set(EXTRA_LIBS ${EXTRA_LIBS} linalg)
 
 target_link_libraries(${PROJECT_NAME} ${EXTRA_LIBS})
 add_dependencies(${PROJECT_NAME} ${EXTRA_LIBS})

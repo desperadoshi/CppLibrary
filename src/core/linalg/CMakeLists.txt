@@ -1,14 +1,7 @@
-project(cubic_spline)
-
-### Find Eigen3
-set(EIGEN3_ROOT "${CMAKE_SOURCE_DIR}/contrib/eigen3/include/eigen3")
-find_package (Eigen3 3.3 REQUIRED)
-include_directories(${EIGEN3_INCLUDE_DIR})
+project(linalg)
 
 include_directories("${CMAKE_SOURCE_DIR}/src/core/misc")
-
-add_library(${PROJECT_NAME} STATIC cubic_spline.cpp)
-
+add_library(${PROJECT_NAME} STATIC linalg.cpp)
 #
 # Output
 #

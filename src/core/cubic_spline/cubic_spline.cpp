@@ -2,10 +2,9 @@
 #include <algorithm>
 #include <iostream>
 #include <cassert>
+#include "misc.h"
 
 #include <Eigen/Dense>
-
-typedef double Real;
 
 template<typename T>
 CubicSpline<T>::CubicSpline(T* in_x_arr,T* in_y_arr,int in_n,int in_bc_type,

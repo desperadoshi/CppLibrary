@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "misc.h"
+#include "linalg.h"
 
 int main(int argc, char** argv){
   /*
