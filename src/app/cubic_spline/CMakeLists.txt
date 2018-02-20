@@ -8,6 +8,7 @@ add_executable(${PROJECT_NAME} test.cpp)
 
 set(EXTRA_LIBS ${EXTRA_LIBS} cubic_spline)
 set(EXTRA_LIBS ${EXTRA_LIBS} io)
+set(EXTRA_LIBS ${EXTRA_LIBS} linalg)
 
 target_link_libraries(${PROJECT_NAME} ${EXTRA_LIBS})
 add_dependencies(${PROJECT_NAME} ${EXTRA_LIBS})

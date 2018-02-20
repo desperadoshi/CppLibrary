@@ -30,6 +30,7 @@ int main(int argc, char** argv){
   CubicSpline<Real> cs2(yplus_arr,uvplus_arr,n_row);
   Real yplus_test=79.0;
   std::cout<<"Cubic spline value: "<<cs2(yplus_test)<<std::endl;
+  std::cout<<"Scipy value: -0.9091101603142492"<<std::endl;
   delete[] yplus_arr;
   delete[] uvplus_arr;
   return 0;

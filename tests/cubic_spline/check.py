@@ -9,6 +9,11 @@ vrmsplus=data[:,4]
 wrmsplus=data[:,5]
 uvplus=data[:,6]
 
+from scipy.interpolate import CubicSpline
+cs=CubicSpline(yplus,uvplus)
+print(cs(79.0))
+exit()
+
 from matplotlib import use
 use('Agg')
 import matplotlib.pyplot as plt

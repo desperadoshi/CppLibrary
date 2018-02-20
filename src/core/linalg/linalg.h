@@ -7,9 +7,15 @@ inline int sgn(T val) {
 } // sgn
 
 template<typename T>
-T linspace(T* lin_arr, T min, T max, int n_pts);
+void linspace(T* lin_arr,T min,T max,int n_pts);
 
 template<typename T>
-T logspace(T* log_arr, T min, T max, int n_pts);
+void logspace(T* log_arr,T min,T max,int n_pts);
+
+template<typename T>
+void LUdcmp(T** a,int n,int* indx,T* d);
+
+template<typename T>
+void LUbksb(T** a,int n,int* indx,T* b);
 
 #endif

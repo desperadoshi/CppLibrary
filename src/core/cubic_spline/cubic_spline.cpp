@@ -4,7 +4,11 @@
 #include <cassert>
 #include "misc.h"
 
+#ifdef USE_EIGEN3
 #include <Eigen/Dense>
+#else
+#include "linalg.h"
+#endif
 
 template<typename T>
 CubicSpline<T>::CubicSpline(T* in_x_arr,T* in_y_arr,int in_n,int in_bc_type,
@@ -107,6 +111,8 @@ void CubicSpline<T>::SetCoefMat(int in_bc_type){
 
 template<typename T>
 void CubicSpline<T>::SolveCoef(){
+#ifdef USE_EIGEN3
+  std::cout<<"USE_EIGEN3"<<std::endl;
   Eigen::MatrixXd A(n,n);
   Eigen::VectorXd b(n);
   for(int i=0;i<n;i++){
@@ -120,6 +126,32 @@ void CubicSpline<T>::SolveCoef(){
   for(int i=0;i<n;i++){
     y_deriv2_arr[i]=X(i);
   }
+#else
+  T** A=new T*[n];
+  for(int i=0;i<n;i++){
+    A[i]=new T[n];
+    for(int j=0;j<n;j++){
+      A[i][j]=A_mat[i*n+j];
+    }
+  }
+  T* b=new T[n];
+  for(int i=0;i<n;i++){
+    b[i]=b_arr[i];
+  }
+  int* index=new int[n];
+  T d;
+  LUdcmp(A,n,index,&d);
+  LUbksb(A,n,index,b_arr);
+  for(int i=0;i<n;i++){
+    y_deriv2_arr[i]=b[i];
+  }
+  for(int i=0;i<n;i++){
+    delete[] A[i];
+  }
+  delete[] A;
+  delete[] b;
+  delete[] index;
+#endif
 }
 
 template<typename T>
